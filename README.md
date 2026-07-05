@@ -23,12 +23,13 @@ Good features matter a great deal. This project helps build that intuition.
 ## Example Notebook + Your Notebook
 
 Keep the example notebook as it is.
-Either copy it or use it to build a new notebook that ends in _yourname.
+Either copy it or use it to build a new notebook that ends in \_yourname.
 See [docs/your-files.md] for more.
 
 Links:
 
 - [ml_02_case.ipynb](notebooks/ml_02_case.ipynb)
+- [ml_02_gracetulsi_adult_census.ipynb](notebooks/ml_02_gracetulsi_adult_census.ipynb)
 
 ## Working Files
 
@@ -85,8 +86,7 @@ After you get a copy of this repo in your own GitHub account,
 open a machine terminal in your `Repos` folder:
 
 ```shell
-# Replace username with YOUR GitHub username.
-git clone https://github.com/username/ml-02-features
+git clone https://github.com/gracetulsi/ml-02-features
 
 cd ml-02-features
 code .
