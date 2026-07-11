@@ -29,7 +29,7 @@ See [docs/your-files.md] for more.
 Links:
 
 - [ml_02_case.ipynb](notebooks/ml_02_case.ipynb)
-- [ml_02_gracetulsi_adult_census.ipynb](notebooks/ml_02_gracetulsi_adult_census.ipynb)
+- [ml_02_gracecode42.ipynb](notebooks/ml_02_gracecode42.ipynb)
 
 ## Working Files
 
