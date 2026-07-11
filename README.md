@@ -86,7 +86,7 @@ After you get a copy of this repo in your own GitHub account,
 open a machine terminal in your `Repos` folder:
 
 ```shell
-git clone https://github.com/gracetulsi/ml-02-features
+git clone https://github.com/gracecode42/ml-02-features
 
 cd ml-02-features
 code .
