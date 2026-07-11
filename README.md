@@ -145,28 +145,6 @@ You accidentally started Python interactive mode.
 It happens.
 Press `Ctrl+c` (both keys together) or `Ctrl+Z` then `Enter` on Windows.
 
-## Example Output (Can Remove this Section after You Verify)
-
-```shell
-| INFO | ML | Summarize workflow........
-| INFO | ML | ========================
-| INFO | ML | SUMMARY
-| INFO | ML | ========================
-| INFO | ML | Dataset: hours_scores_case
-| INFO | ML | Original rows: 10
-| INFO | ML | Clean rows: 10
-| INFO | ML | Features: ['hours_studied', 'practice_quizzes', 'attendance_pct', 'sleep_hours', 'prior_score']
-| INFO | ML | Target: score
-| INFO | ML | ----- in a script, call plt.show() once at the end to display all charts -----
-| INFO | ML | ----- in a script, CLOSE the chart windows with the close button to CONTINUE -----
-| INFO | ML | Workflow complete
-| INFO | ML | IMPORTANT: This script creates chart windows.
-| INFO | ML | Close chart windows and terminate this process with CTRL+c as needed.
-| INFO | ML | ========================
-| INFO | ML | Executed successfully!
-| INFO | ML | ========================
-```
-
 ## Findings and Visuals
 
 Take screenshots of your charts and provide them here with a discussion.
