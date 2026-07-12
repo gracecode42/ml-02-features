@@ -110,9 +110,10 @@ early-alert context that student is the point.
 ![Constructed features: absence_level and parent_at_home](./docs/images/constructed_features_gracecode42.png)
 
 `absence_level` bins attendance at the median, the third quartile, and the 1.5 IQR fence.
-The bins keep the skew of the original variable: about half the students are "low" and only 15
-are "very high," so most of the information sits in a small group. `parent_at_home` flags whether
-either parent's job is listed as at_home.
+The bins keep the skew of the original variable: 191 students are "low," 118 "moderate,"
+71 "high," and only 15 "very high."
+`parent_at_home` flags whether either parent's job is listed as at_home, which is true for
+72 students.
 
 ## Project Documentation
 

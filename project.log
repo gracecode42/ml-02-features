@@ -1243,3 +1243,264 @@ max      5.000000    5.000000    5.000000   75.000000   19.000000   19.000000   
 2026-07-11 18:41:54 | INFO | ML | shell=powershell
 2026-07-11 18:41:54 | INFO | ML | cwd=.
 2026-07-11 18:41:54 | INFO | ML | github_actions=False
+2026-07-11 19:15:45 | INFO | M02-STUDENTS | Constructing features (vectorized, none are derived from the target)
+2026-07-11 19:15:45 | INFO | M02-STUDENTS | Dropped features: ['G1', 'G2']
+2026-07-11 19:15:45 | INFO | M02-STUDENTS | Added features: ['parent_at_home', 'absence_level']
+2026-07-11 19:15:45 | DEBUG | M02-STUDENTS | Sample of constructed features:
+2026-07-11 19:15:45 | DEBUG | M02-STUDENTS | 
+      Mjob      Fjob  absences  parent_at_home absence_level
+0  at_home   teacher         6               1      moderate
+1  at_home     other         4               1      moderate
+2  at_home     other        10               1          high
+3   health  services         2               0           low
+4    other     other         4               0      moderate
+2026-07-11 19:15:45 | INFO | M02-STUDENTS | absence_level counts:
+2026-07-11 19:15:45 | INFO | M02-STUDENTS | 
+absence_level
+low          191
+moderate     118
+high          71
+very high     15
+Name: count, dtype: int64
+2026-07-11 19:15:45 | INFO | M02-STUDENTS | parent_at_home counts:
+2026-07-11 19:15:45 | INFO | M02-STUDENTS | 
+parent_at_home
+0    323
+1     72
+Name: count, dtype: int64
+2026-07-11 19:16:34 | INFO | M02-STUDENTS | === RUN START ===
+2026-07-11 19:16:34 | INFO | M02-STUDENTS | project=M02
+2026-07-11 19:16:34 | INFO | M02-STUDENTS | repo_dir=ml-02-features
+2026-07-11 19:16:34 | INFO | M02-STUDENTS | python=3.14.2
+2026-07-11 19:16:34 | INFO | M02-STUDENTS | os=Windows 11
+2026-07-11 19:16:34 | INFO | M02-STUDENTS | shell=powershell
+2026-07-11 19:16:34 | INFO | M02-STUDENTS | cwd=notebooks
+2026-07-11 19:16:34 | INFO | M02-STUDENTS | github_actions=False
+2026-07-11 19:16:34 | INFO | M02-STUDENTS | Confirming installation:
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   python:       3.14.2
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   pandas:       3.0.3
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   numpy:        2.5.1
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   scikit-learn: 1.9.0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   seaborn:      0.13.2
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   matplotlib:   3.11.0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS | Loading dataset: student-mat
+2026-07-11 19:16:34 | INFO | M02-STUDENTS | Loaded: 395 rows (instances), 33 columns
+2026-07-11 19:16:34 | INFO | M02-STUDENTS | The intended target is 'G3'.
+2026-07-11 19:16:34 | INFO | M02-STUDENTS | Any feature derived FROM the target would leak the answer. Avoid those.
+2026-07-11 19:16:34 | INFO | M02-STUDENTS | Per-column completeness and type:
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   school               str        present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   sex                  str        present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   age                  int64      present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   address              str        present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   famsize              str        present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   Pstatus              str        present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   Medu                 int64      present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   Fedu                 int64      present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   Mjob                 str        present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   Fjob                 str        present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   reason               str        present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   guardian             str        present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   traveltime           int64      present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   studytime            int64      present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   failures             int64      present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   schoolsup            str        present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   famsup               str        present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   paid                 str        present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   activities           str        present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   nursery              str        present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   higher               str        present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   internet             str        present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   romantic             str        present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   famrel               int64      present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   freetime             int64      present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   goout                int64      present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   Dalc                 int64      present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   Walc                 int64      present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   health               int64      present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   absences             int64      present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   G1                   int64      present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   G2                   int64      present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS |   G3                   int64      present=100.0%  missing=0
+2026-07-11 19:16:34 | INFO | M02-STUDENTS | Numeric summary (for spread / outliers):
+2026-07-11 19:16:34 | DEBUG | M02-STUDENTS | 
+              age        Medu        Fedu  traveltime   studytime    failures      famrel    freetime       goout  \
+count  395.000000  395.000000  395.000000  395.000000  395.000000  395.000000  395.000000  395.000000  395.000000   
+mean    16.696203    2.749367    2.521519    1.448101    2.035443    0.334177    3.944304    3.235443    3.108861   
+std      1.276043    1.094735    1.088201    0.697505    0.839240    0.743651    0.896659    0.998862    1.113278   
+min     15.000000    0.000000    0.000000    1.000000    1.000000    0.000000    1.000000    1.000000    1.000000   
+25%     16.000000    2.000000    2.000000    1.000000    1.000000    0.000000    4.000000    3.000000    2.000000   
+50%     17.000000    3.000000    2.000000    1.000000    2.000000    0.000000    4.000000    3.000000    3.000000   
+75%     18.000000    4.000000    3.000000    2.000000    2.000000    0.000000    5.000000    4.000000    4.000000   
+max     22.000000    4.000000    4.000000    4.000000    4.000000    3.000000    5.000000    5.000000    5.000000   
+
+             Dalc        Walc      health    absences          G1          G2          G3  
+count  395.000000  395.000000  395.000000  395.000000  395.000000  395.000000  395.000000  
+mean     1.481013    2.291139    3.554430    5.708861   10.908861   10.713924   10.415190  
+std      0.890741    1.287897    1.390303    8.003096    3.319195    3.761505    4.581443  
+min      1.000000    1.000000    1.000000    0.000000    3.000000    0.000000    0.000000  
+25%      1.000000    1.000000    3.000000    0.000000    8.000000    9.000000    8.000000  
+50%      1.000000    2.000000    4.000000    4.000000   11.000000   11.000000   11.000000  
+75%      2.000000    3.000000    5.000000    8.000000   13.000000   13.000000   14.000000  
+max      5.000000    5.000000    5.000000   75.000000   19.000000   19.000000   20.000000  
+2026-07-11 19:16:35 | INFO | M02-STUDENTS | absences: max=75, median=4.0
+2026-07-11 19:16:35 | INFO | M02-STUDENTS | absences over 20: 15 students
+2026-07-11 19:16:35 | INFO | M02-STUDENTS | G3 equal to zero: 38 students
+2026-07-11 19:16:35 | INFO | M02-STUDENTS | Q1=0.0, median=4.0, Q3=8.0, IQR=8.0, upper fence=20.0
+2026-07-11 19:16:35 | INFO | M02-STUDENTS | absences above the fence: 15 students
+2026-07-11 19:16:35 | INFO | M02-STUDENTS | Constructing features (vectorized, none are derived from the target)
+2026-07-11 19:16:35 | INFO | M02-STUDENTS | Dropped features: ['G1', 'G2']
+2026-07-11 19:16:35 | INFO | M02-STUDENTS | Added features: ['parent_at_home', 'absence_level']
+2026-07-11 19:16:35 | DEBUG | M02-STUDENTS | Sample of constructed features:
+2026-07-11 19:16:35 | DEBUG | M02-STUDENTS | 
+      Mjob      Fjob  absences  parent_at_home absence_level
+0  at_home   teacher         6               1      moderate
+1  at_home     other         4               1      moderate
+2  at_home     other        10               1          high
+3   health  services         2               0           low
+4    other     other         4               0      moderate
+2026-07-11 19:16:35 | INFO | M02-STUDENTS | absence_level counts:
+2026-07-11 19:16:35 | INFO | M02-STUDENTS | 
+absence_level
+low          191
+moderate     118
+high          71
+very high     15
+Name: count, dtype: int64
+2026-07-11 19:16:35 | INFO | M02-STUDENTS | parent_at_home counts:
+2026-07-11 19:16:35 | INFO | M02-STUDENTS | 
+parent_at_home
+0    323
+1     72
+Name: count, dtype: int64
+2026-07-11 19:16:35 | INFO | M02-STUDENTS | ========================
+2026-07-11 19:16:35 | INFO | M02-STUDENTS | SUMMARY
+2026-07-11 19:16:35 | INFO | M02-STUDENTS | ========================
+2026-07-11 19:16:35 | INFO | M02-STUDENTS | Dataset:          student-mat
+2026-07-11 19:16:35 | INFO | M02-STUDENTS | Original columns: 33
+2026-07-11 19:16:35 | INFO | M02-STUDENTS | Columns removed:  2 ['G1', 'G2']
+2026-07-11 19:16:35 | INFO | M02-STUDENTS | Columns added:    2 ['parent_at_home', 'absence_level']
+2026-07-11 19:16:35 | INFO | M02-STUDENTS | After features:   33
+2026-07-11 19:16:35 | INFO | M02-STUDENTS | Intended target:  G3
+2026-07-11 19:16:35 | INFO | M02-STUDENTS | ========================
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | === RUN START ===
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | project=M02
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | repo_dir=ml-02-features
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | python=3.14.2
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | os=Windows 11
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | shell=powershell
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | cwd=notebooks
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | github_actions=False
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | Confirming installation:
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   python:       3.14.2
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   pandas:       3.0.3
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   numpy:        2.5.1
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   scikit-learn: 1.9.0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   seaborn:      0.13.2
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   matplotlib:   3.11.0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | Loading dataset: student-mat
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | Loaded: 395 rows (instances), 33 columns
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | The intended target is 'G3'.
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | Any feature derived FROM the target would leak the answer. Avoid those.
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | Per-column completeness and type:
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   school               str        present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   sex                  str        present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   age                  int64      present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   address              str        present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   famsize              str        present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   Pstatus              str        present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   Medu                 int64      present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   Fedu                 int64      present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   Mjob                 str        present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   Fjob                 str        present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   reason               str        present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   guardian             str        present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   traveltime           int64      present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   studytime            int64      present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   failures             int64      present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   schoolsup            str        present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   famsup               str        present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   paid                 str        present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   activities           str        present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   nursery              str        present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   higher               str        present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   internet             str        present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   romantic             str        present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   famrel               int64      present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   freetime             int64      present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   goout                int64      present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   Dalc                 int64      present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   Walc                 int64      present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   health               int64      present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   absences             int64      present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   G1                   int64      present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   G2                   int64      present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS |   G3                   int64      present=100.0%  missing=0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | Numeric summary (for spread / outliers):
+2026-07-11 19:26:07 | DEBUG | M02-STUDENTS | 
+              age        Medu        Fedu  traveltime   studytime    failures      famrel    freetime       goout  \
+count  395.000000  395.000000  395.000000  395.000000  395.000000  395.000000  395.000000  395.000000  395.000000   
+mean    16.696203    2.749367    2.521519    1.448101    2.035443    0.334177    3.944304    3.235443    3.108861   
+std      1.276043    1.094735    1.088201    0.697505    0.839240    0.743651    0.896659    0.998862    1.113278   
+min     15.000000    0.000000    0.000000    1.000000    1.000000    0.000000    1.000000    1.000000    1.000000   
+25%     16.000000    2.000000    2.000000    1.000000    1.000000    0.000000    4.000000    3.000000    2.000000   
+50%     17.000000    3.000000    2.000000    1.000000    2.000000    0.000000    4.000000    3.000000    3.000000   
+75%     18.000000    4.000000    3.000000    2.000000    2.000000    0.000000    5.000000    4.000000    4.000000   
+max     22.000000    4.000000    4.000000    4.000000    4.000000    3.000000    5.000000    5.000000    5.000000   
+
+             Dalc        Walc      health    absences          G1          G2          G3  
+count  395.000000  395.000000  395.000000  395.000000  395.000000  395.000000  395.000000  
+mean     1.481013    2.291139    3.554430    5.708861   10.908861   10.713924   10.415190  
+std      0.890741    1.287897    1.390303    8.003096    3.319195    3.761505    4.581443  
+min      1.000000    1.000000    1.000000    0.000000    3.000000    0.000000    0.000000  
+25%      1.000000    1.000000    3.000000    0.000000    8.000000    9.000000    8.000000  
+50%      1.000000    2.000000    4.000000    4.000000   11.000000   11.000000   11.000000  
+75%      2.000000    3.000000    5.000000    8.000000   13.000000   13.000000   14.000000  
+max      5.000000    5.000000    5.000000   75.000000   19.000000   19.000000   20.000000  
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | absences: max=75, median=4.0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | absences over 20: 15 students
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | G3 equal to zero: 38 students
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | Q1=0.0, median=4.0, Q3=8.0, IQR=8.0, upper fence=20.0
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | absences above the fence: 15 students
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | Constructing features (vectorized, none are derived from the target)
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | Dropped features: ['G1', 'G2']
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | Added features: ['parent_at_home', 'absence_level']
+2026-07-11 19:26:07 | DEBUG | M02-STUDENTS | Sample of constructed features:
+2026-07-11 19:26:07 | DEBUG | M02-STUDENTS | 
+      Mjob      Fjob  absences  parent_at_home absence_level
+0  at_home   teacher         6               1      moderate
+1  at_home     other         4               1      moderate
+2  at_home     other        10               1          high
+3   health  services         2               0           low
+4    other     other         4               0      moderate
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | absence_level counts:
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | 
+absence_level
+low          191
+moderate     118
+high          71
+very high     15
+Name: count, dtype: int64
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | parent_at_home counts:
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | 
+parent_at_home
+0    323
+1     72
+Name: count, dtype: int64
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | ========================
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | SUMMARY
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | ========================
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | Dataset:          student-mat
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | Original columns: 33
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | Columns removed:  2 ['G1', 'G2']
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | Columns added:    2 ['parent_at_home', 'absence_level']
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | After features:   33
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | Intended target:  G3
+2026-07-11 19:26:07 | INFO | M02-STUDENTS | ========================
+2026-07-11 19:26:31 | INFO | ML | === RUN START ===
+2026-07-11 19:26:31 | INFO | ML | project=ML
+2026-07-11 19:26:31 | INFO | ML | repo_dir=ml-02-features
+2026-07-11 19:26:31 | INFO | ML | python=3.14.2
+2026-07-11 19:26:31 | INFO | ML | os=Windows 11
+2026-07-11 19:26:31 | INFO | ML | shell=powershell
+2026-07-11 19:26:31 | INFO | ML | cwd=.
+2026-07-11 19:26:31 | INFO | ML | github_actions=False
