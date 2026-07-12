@@ -52,7 +52,7 @@ The example project uses the Seaborn penguins dataset and predicts `body_mass_g`
 measurement, from other body measurements. I kept the process and changed the problem.
 
 My dataset is the UCI Student Performance data (Cortez, P. 2014, UCI Machine Learning
-Repository, https://doi.org/10.24432/C5TG7T, CC BY 4.0), specifically `student-mat.csv`:
+Repository, <https://doi.org/10.24432/C5TG7T>, CC BY 4.0), specifically `student-mat.csv`:
 395 students in a secondary school mathematics course at two Portuguese schools, 33 columns
 covering demographics, family background, social life, school support, and grades. The data
 is complete, with no missing values in any column.
@@ -84,6 +84,8 @@ The distribution also has a feature worth noting. Above 5, `G3` is roughly bell-
 students score exactly zero, which reads as a separate group rather than the low tail of one
 distribution. I did not remove or adjust them. A zero final grade is not a data error, and in an
 early-alert context that student is the point.
+
+![Distributions of absences, G3, and studytime](./images/distributions_gracecode42.png)
 
 ### Features
 
@@ -143,4 +145,5 @@ The dataset is complete and clean. The thing that shaped every decision was when
 needs to arrive, and that is a question about the problem, not about the columns.
 
 The skills here transfer directly to my own work. Any early-alert question at a college runs into
-the same constraint: some of the strongest predictors of a student's outcome are things you only learn after the point where you could have helped.
+the same constraint: some of the strongest predictors of a student's outcome are things you only
+learn after the point where you could have helped.

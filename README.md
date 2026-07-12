@@ -26,7 +26,7 @@ Data: 395 students, 33 columns.
 ## Data
 
 Cortez, P. (2014). Student Performance [Dataset]. UCI Machine Learning Repository.
-https://doi.org/10.24432/C5TG7T (CC BY 4.0)
+<https://doi.org/10.24432/C5TG7T> (CC BY 4.0)
 
 - `data/raw/student-mat.csv` - the mathematics course file, 395 students, 33 columns.
   Semicolon-separated, so it is read with `pd.read_csv(path, sep=";")`.
