@@ -8,72 +8,35 @@
 
 ## Project Description
 
-This project focuses on how to prepare data for machine learning
-by engineering and selecting features.
+This project prepares data for machine learning by engineering and selecting features.
 
-We learn to:
+The custom project uses the UCI Student Performance dataset to ask a question:
+can we identify students heading for a poor outcome early enough to reach them?
+That question turns out to constrain the data. The two most predictive columns in the dataset
+are prior period grades, and neither one exists at the moment the prediction would be useful,
+so both were removed.
 
-- handle missing values and outliers
-- encode categorical variables
-- scale and transform numeric features
-- select the features most likely to help a model
+Two features were constructed and added: `absence_level`, a binned version of the
+absence count, and `parent_at_home`, a flag for whether either parent's job is listed as
+at_home.
 
-Good features matter a great deal. This project helps build that intuition.
+Target: `G3`, the final grade (0 to 20). Supervised regression.
+Data: 395 students, 33 columns.
 
-## Example Notebook + Your Notebook
+## Data
 
-Keep the example notebook as it is.
-Either copy it or use it to build a new notebook that ends in \_yourname.
-See [docs/your-files.md] for more.
+Cortez, P. (2014). Student Performance [Dataset]. UCI Machine Learning Repository.
+https://doi.org/10.24432/C5TG7T (CC BY 4.0)
 
-Links:
+- `data/raw/student-mat.csv` - the mathematics course file, 395 students, 33 columns.
+  Semicolon-separated, so it is read with `pd.read_csv(path, sep=";")`.
+- `data/raw/student.txt` - the column dictionary from UCI.
 
-- [ml_02_case.ipynb](notebooks/ml_02_case.ipynb)
-- [ml_02_gracecode42.ipynb](notebooks/ml_02_gracecode42.ipynb)
+## Notebooks
 
-## Working Files
-
-You'll work with these areas:
-
-- **data/raw** - raw data for exploration (only if you add a dataset)
-- **docs/** - project narrative and documentation
-- **src/mlstudio/** - the app is an example; run only (no need to modify)
-- **notebooks/** - interactive analysis
-- **pyproject.toml** - update authorship & links
-- **zensical.toml** - update authorship & links
-
-## Instructions (pro-analytics-02)
-
-Follow the
-[step-by-step workflow guide](https://denisecase.github.io/pro-analytics-02/workflow-b-apply-example-project/)
-to complete:
-
-1. Phase 1. **Start & Run**
-2. Phase 2. **Change Authorship**
-3. Phase 3. **Read & Understand**
-4. Phase 4. **Modify**
-5. Phase 5. **Apply**
-
-## Challenges
-
-Challenges are expected.
-Sometimes instructions may not quite match your operating system.
-When issues occur, share screenshots, error messages, and details about what you tried.
-Working through issues is part of implementing professional projects.
-
-## Success
-
-After completing Phase 1. **Start & Run**, you'll have your own GitHub project,
-with the example notebook executed and committed,
-and running the example module will print out:
-
-```shell
-========================
-Executed successfully!
-========================
-```
-
-A new file `project.log` will appear in the root project folder.
+- [ml_02_case.ipynb](notebooks/ml_02_case.ipynb) - the provided example (unchanged)
+- [ml_02_gracecode42.ipynb](notebooks/ml_02_gracecode42.ipynb) - Phase 4, technical modification
+- [ml_02_gracecode42_students.ipynb](notebooks/ml_02_gracecode42_students.ipynb) - Phase 5, custom project
 
 ## Command Reference
 
@@ -126,47 +89,30 @@ uv run python -m zensical build
 git add -A
 git commit -m "update"
 git push -u origin main
+
+# run the custom project notebook
+# open notebooks/ml_02_gracecode42_students.ipynb in VS Code,
+# select the .venv kernel, and Run All
 ```
 
 </details>
 
-## Notes
-
-- Use the **UP ARROW** and **DOWN ARROW** in the terminal to scroll through past commands.
-- Use `CTRL+f` to find (and replace) text within a file.
-- You do not need to add to or modify `tests/`. They are provided for example only.
-- Many files are silent helpers. Explore as you like, but nothing is required.
-- You do NOT need to understand everything; understanding builds naturally over time.
-
-## Troubleshooting >>>
-
-If you see something like this in your terminal: `>>>` or `...`
-You accidentally started Python interactive mode.
-It happens.
-Press `Ctrl+c` (both keys together) or `Ctrl+Z` then `Enter` on Windows.
-
 ## Findings and Visuals
 
-Take screenshots of your charts and provide them here with a discussion.
-In Markdown, display a figure by using:
-an exclamation mark immediately followed by square brackets containing a useful caption
-immediately followed by parentheses containing the relative path to your figure.
-Note: When you start typing the path with a dot (.) for "here, in this directory",
-the IDE may help complete the path.
+![Distributions of absences, G3, and studytime](./docs/images/distributions_gracecode42.png)
 
-In your custom project, follow this example, but
+`absences` runs from 0 to 75 with a median of 4, so a small number of students sit far from
+everyone else. `G3` is roughly bell-shaped above 5, but 38 students score exactly zero, which
+looks like a separate group rather than the low tail of one distribution. Neither was cleaned
+or removed. A student with 75 absences or a zero final grade is not a data error, and in an
+early-alert context that student is the point.
 
-- your figures and narrative should reflect your work,
-- this `README.md` should include your commands, process, and visuals, and
-- `docs/index.md` should include your narrative.
+![Constructed features: absence_level and parent_at_home](./docs/images/constructed_features_gracecode42.png)
 
-Remove unnecessary instructional comments in your custom files.
-
-Update figures to present interesting results from your custom project:
-
-![Provide a Useful Caption](./docs/images/Figure_1.png)
-
-![Provide a Useful Caption](./docs/images/Figure_2.png)
+`absence_level` bins attendance at the median, the third quartile, and the 1.5 IQR fence.
+The bins keep the skew of the original variable: about half the students are "low" and only 15
+are "very high," so most of the information sits in a small group. `parent_at_home` flags whether
+either parent's job is listed as at_home.
 
 ## Project Documentation
 
