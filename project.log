@@ -1113,3 +1113,11 @@ max      5.000000    5.000000    5.000000   75.000000   19.000000   19.000000   
 2026-07-11 17:16:58 | INFO | ML | shell=powershell
 2026-07-11 17:16:58 | INFO | ML | cwd=.
 2026-07-11 17:16:58 | INFO | ML | github_actions=False
+2026-07-11 17:57:41 | INFO | ML | === RUN START ===
+2026-07-11 17:57:41 | INFO | ML | project=ML
+2026-07-11 17:57:41 | INFO | ML | repo_dir=ml-02-features
+2026-07-11 17:57:41 | INFO | ML | python=3.14.2
+2026-07-11 17:57:41 | INFO | ML | os=Windows 11
+2026-07-11 17:57:41 | INFO | ML | shell=powershell
+2026-07-11 17:57:41 | INFO | ML | cwd=.
+2026-07-11 17:57:41 | INFO | ML | github_actions=False
